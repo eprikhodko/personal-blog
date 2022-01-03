@@ -1,7 +1,7 @@
 import * as React from "react"
 import { Link } from "gatsby"
 
-import { createGlobalStyle } from "styled-components"
+import styled, { createGlobalStyle } from "styled-components"
 
 const GlobalStyle = createGlobalStyle`
 
@@ -31,26 +31,50 @@ body {
 }
 `
 
+const Container = styled.div`
+  margin: auto;
+  max-width: 500px;
+  font-family: sans-serif;
+`
+
+const Heading = styled.h1`
+  color: rebeccapurple;
+`
+
+const NavLinks = styled.ul`
+  display: flex;
+  list-style: none;
+  padding-left: 0;
+`
+
+const NavLinkItem = styled.li`
+  padding-right: 2rem;
+`
+
+const NavLink = styled(Link)`
+  color: #000;
+`
+
 function Layout({ pageTitle, children }) {
   return (
-    <div>
+    <Container>
       <GlobalStyle />
       <title>{pageTitle}</title>
       <nav>
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/about">About</Link>
-          </li>
-        </ul>
+        <NavLinks>
+          <NavLinkItem>
+            <NavLink to="/">Home</NavLink>
+          </NavLinkItem>
+          <NavLinkItem>
+            <NavLink to="/about">About</NavLink>
+          </NavLinkItem>
+        </NavLinks>
       </nav>
       <main>
         <h1>{pageTitle}</h1>
         {children}
       </main>
-    </div>
+    </Container>
   )
 }
 
