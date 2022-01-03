@@ -22,7 +22,11 @@
     "sourceType": "module"
   },
   "plugins": ["styled-components-a11y", "react"],
+  // "plugins": ["plugin:react/recommended", "styled-components-a11y", "react"],
+
   "rules": {
+    "react/jsx-uses-react": "error",
+    "react/jsx-uses-vars": "error",
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     // https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/issues/302
     "jsx-a11y/label-has-associated-control": [
