@@ -3,5 +3,9 @@ module.exports = {
     siteUrl: "https://www.evgenyprikhodko.com",
     title: "personal blog of Evgeny Prikhodko",
   },
-  plugins: [`gatsby-plugin-styled-components`],
+  plugins: [
+    "gatsby-plugin-styled-components",
+    "gatsby-plugin-image",
+    "gatsby-plugin-sharp",
+  ],
 }

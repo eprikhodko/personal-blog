@@ -6,7 +6,7 @@ import styled, { createGlobalStyle } from "styled-components"
 const GlobalStyle = createGlobalStyle`
 
 html, body, #root, .App {
-  height: 100%;
+  /* height: 100%; */
 }
 
 /* set base font size to 10px */
@@ -38,7 +38,7 @@ const Container = styled.div`
 `
 
 const Heading = styled.h1`
-  color: rebeccapurple;
+  /* color: rebeccapurple; */
 `
 
 const NavLinks = styled.ul`
@@ -71,7 +71,7 @@ function Layout({ pageTitle, children }) {
         </NavLinks>
       </nav>
       <main>
-        <h1>{pageTitle}</h1>
+        <Heading>{pageTitle}</Heading>
         {children}
       </main>
     </Container>
