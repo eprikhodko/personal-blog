@@ -1,5 +1,5 @@
 import * as React from "react"
-import { Link } from "gatsby"
+import { Link, useStaticQuery, graphql } from "gatsby"
 
 import styled, { createGlobalStyle } from "styled-components"
 
@@ -56,10 +56,23 @@ const NavLink = styled(Link)`
 `
 
 function Layout({ pageTitle, children }) {
+  const data = useStaticQuery(graphql`
+    query MyQuery {
+      site {
+        siteMetadata {
+          title
+        }
+      }
+    }
+  `)
+
   return (
     <Container>
       <GlobalStyle />
-      <title>{pageTitle}</title>
+      <title>
+        {pageTitle} | {data.site.siteMetadata.title}
+      </title>
+      <header>{data.site.siteMetadata.title}</header>
       <nav>
         <NavLinks>
           <NavLinkItem>
