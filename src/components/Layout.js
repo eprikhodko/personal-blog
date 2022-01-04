@@ -81,6 +81,9 @@ function Layout({ pageTitle, children }) {
           <NavLinkItem>
             <NavLink to="/about">About</NavLink>
           </NavLinkItem>
+          <NavLinkItem>
+            <NavLink to="/blog">Blog</NavLink>
+          </NavLinkItem>
         </NavLinks>
       </nav>
       <main>
