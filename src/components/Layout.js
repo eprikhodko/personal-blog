@@ -31,20 +31,19 @@ body {
 }
 `
 
-const MainContainer = styled.div`
+const GridContainer = styled.div`
   display: grid;
   grid-template-columns: minmax(1em, 1fr) minmax(0, 700px) minmax(1em, 1fr);
 `
 
 const Container = styled.div`
-  /* margin: auto;
-  max-width: 700px; */
   font-family: sans-serif;
   grid-column: 2/-2;
 `
 
 const Heading = styled.h1`
   /* color: rebeccapurple; */
+  margin-bottom: 0;
 `
 
 const NavLinks = styled.ul`
@@ -73,7 +72,7 @@ function Layout({ pageTitle, children }) {
   `)
 
   return (
-    <MainContainer>
+    <GridContainer>
       <Container>
         <GlobalStyle />
         <title>
@@ -95,7 +94,7 @@ function Layout({ pageTitle, children }) {
           {children}
         </main>
       </Container>
-    </MainContainer>
+    </GridContainer>
   )
 }
 
