@@ -31,10 +31,16 @@ body {
 }
 `
 
+const MainContainer = styled.div`
+  display: grid;
+  grid-template-columns: minmax(1em, 1fr) minmax(0, 700px) minmax(1em, 1fr);
+`
+
 const Container = styled.div`
-  margin: auto;
-  max-width: 500px;
+  /* margin: auto;
+  max-width: 700px; */
   font-family: sans-serif;
+  grid-column: 2/-2;
 `
 
 const Heading = styled.h1`
@@ -67,30 +73,29 @@ function Layout({ pageTitle, children }) {
   `)
 
   return (
-    <Container>
-      <GlobalStyle />
-      <title>
-        {pageTitle} | {data.site.siteMetadata.title}
-      </title>
-      <header>{data.site.siteMetadata.title}</header>
-      <nav>
-        <NavLinks>
-          <NavLinkItem>
-            <NavLink to="/">Home</NavLink>
-          </NavLinkItem>
-          <NavLinkItem>
-            <NavLink to="/about">About</NavLink>
-          </NavLinkItem>
-          <NavLinkItem>
-            <NavLink to="/blog">Blog</NavLink>
-          </NavLinkItem>
-        </NavLinks>
-      </nav>
-      <main>
-        <Heading>{pageTitle}</Heading>
-        {children}
-      </main>
-    </Container>
+    <MainContainer>
+      <Container>
+        <GlobalStyle />
+        <title>
+          {pageTitle} | {data.site.siteMetadata.title}
+        </title>
+        <header>{data.site.siteMetadata.title}</header>
+        <nav>
+          <NavLinks>
+            <NavLinkItem>
+              <NavLink to="/">Home</NavLink>
+            </NavLinkItem>
+            <NavLinkItem>
+              <NavLink to="/blog">Blog</NavLink>
+            </NavLinkItem>
+          </NavLinks>
+        </nav>
+        <main>
+          <Heading>{pageTitle}</Heading>
+          {children}
+        </main>
+      </Container>
+    </MainContainer>
   )
 }
 
