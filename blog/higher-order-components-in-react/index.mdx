@@ -9,6 +9,30 @@ hero_image_alt: "A jeep in dunes"
 Higher-Order Components (Компоненты высшего порядка, HOC) - это способ, позволяющий повторно использовать код компонентов. <br />
 Проще говоря, компонент высшего порядка - это функция, которая принимает компонент, и возвращает новый компонент.
 
+```jsx
+const EnhancedComponent = higherOrderComponent(WrappedComponent)
 ```
-const EnhancedComponent = higherOrderComponent(WrappedComponent);
+
+```jsx
+// here's a button in React!
+<button
+  onClick={() => {
+    alert("Hello MDX!")
+  }}
+>
+  test
+</button>
+```
+
+Wow! Such code snippets!
+Let's see another, with line highlighting:
+
+```js
+// fizzbuzz in JS
+for (let i = 1; i <= 100; i++) {
+  let out = ""
+  if (i % 3 === 0) out += "Fizz"
+  if (i % 5 === 0) out += "Buzz"
+  console.log(out || i)
+}
 ```
