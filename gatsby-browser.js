@@ -1,7 +1,9 @@
 import React from "react"
 import { MDXProvider } from "@mdx-js/react"
 import Highlight, { defaultProps } from "prism-react-renderer"
-import theme from "prism-react-renderer/themes/dracula"
+// import theme from "prism-react-renderer/themes/duotoneDark"
+import theme from "./src/assets/css/myCustomTheme"
+// require("./src/assets/css/prism-one-dark.css")
 
 const components = {
   pre: (props) => {
@@ -12,6 +14,7 @@ const components = {
     return (
       <Highlight
         {...defaultProps}
+        // theme={undefined}
         theme={theme}
         code={code}
         language={language}
