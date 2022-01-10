@@ -14,11 +14,13 @@ const CodeBlockContainer = styled.div`
 `
 
 const CodeTitle = styled.div`
-  color: #9d9d9d;
+  /* color: #9d9d9d; */
+  color: #866c5b;
+  background: #fdfaf6;
   font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
     "Courier New", monospace;
 
-  padding: 1.25em 1.5em;
+  padding: 1.25em 1.5em 1em;
 
   border-bottom: 1px solid #faede5;
   /* border-bottom: 1px solid var(--theme-ui-colors-code-border,#faede5); */
@@ -29,39 +31,44 @@ const CodeTitle = styled.div`
 
 const CodeLabel = styled.div`
   background: rgb(247, 223, 30);
-  margin-right: 1rem;
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
+  padding: 0.25rem 0.5rem;
+  margin-left: 1.5em;
+
+  font-size: 1.2rem;
+  letter-spacing: 0.075em;
+  line-height: 1;
   text-transform: uppercase;
+  color: rgb(35, 33, 41);
+
   border-bottom-left-radius: 0.5rem;
   border-bottom-right-radius: 0.5rem;
   font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
     "Courier New", monospace;
   text-align: center;
-  display: flex;
+  /* display: flex; */
   justify-content: center;
   align-items: center;
 `
 
 const Pre = styled.pre`
   /* border: 5px solid green; */
+  padding: 2em 1.5em;
+  position: relative;
 
   &:before {
     content: "${({ language }) => language}";
-    width: 100px;
-    height: 100px;
     background: #d9d7e0;
+    background: #f7df1e;
     border-radius: 0px 0px 4px 4px;
     color: #232129;
     color: ${({ color }) => color};
-    /* font-size: 0.75rem; */
     font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
     letter-spacing: 0.075em;
     line-height: 1;
-    padding: 0.25rem 0.5rem;
-    /* position: absolute; */
-    left: 1.5rem;
+    padding: 0.4rem 0.8rem;
+    position: absolute;
+    /* left: 1.5rem; */
     text-align: right;
     text-transform: uppercase;
     top: 0px;
@@ -80,43 +87,38 @@ const components = {
     return (
       <CodeBlockContainer>
         <CodeTitle>{file && `${file}`}</CodeTitle>
-        <div style={{ display: "flex", position: "relative" }}>
+        {/* <div style={{ display: "flex", position: "relative" }}>
           <CodeLabel>{`${language}`}</CodeLabel>
-        </div>
-        <div
+        </div> */}
+        {/* <div
           style={{
             overflow: "auto",
             background: "#011627",
-            borderRadius: "0.5rem",
+            // borderRadius: "0.5rem",
           }}
+        > */}
+        <Highlight
+          {...defaultProps}
+          theme={undefined}
+          // theme={theme}
+          code={code}
+          language={language}
         >
-          <Highlight
-            {...defaultProps}
-            theme={undefined}
-            // theme={theme}
-            code={code}
-            language={language}
-          >
-            {({ className, style, tokens, getLineProps, getTokenProps }) => (
-              <Pre
-                className={className}
-                style={style}
-                language={language}
-                color="green"
-              >
-                {/* <div>{`Language: ${language}`}</div> */}
-                {/* <div>{file && `File: ${file}`}</div> */}
-                {tokens.map((line, i) => (
-                  <div {...getLineProps({ line, key: i })}>
-                    {line.map((token, key) => (
-                      <span {...getTokenProps({ token, key })} />
-                    ))}
-                  </div>
-                ))}
-              </Pre>
-            )}
-          </Highlight>
-        </div>
+          {({ className, style, tokens, getLineProps, getTokenProps }) => (
+            <Pre className={className} style={style} language={language}>
+              {/* <div>{`Language: ${language}`}</div> */}
+              {/* <div>{file && `File: ${file}`}</div> */}
+              {tokens.map((line, i) => (
+                <div {...getLineProps({ line, key: i })}>
+                  {line.map((token, key) => (
+                    <span {...getTokenProps({ token, key })} />
+                  ))}
+                </div>
+              ))}
+            </Pre>
+          )}
+        </Highlight>
+        {/* </div> */}
       </CodeBlockContainer>
     )
   },
