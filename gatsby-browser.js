@@ -11,26 +11,78 @@ const components = {
     const className = props.children.props.className || ""
     const code = props.children.props.children.trim()
     const language = className.replace(/language-/, "")
+    const file = props.children.props.file
     return (
-      <Highlight
-        {...defaultProps}
-        theme={undefined}
-        // theme={theme}
-        code={code}
-        language={language}
+      <div
+        style={{
+          background: "hsl(220, 13%, 18%)",
+          borderRadius: "0.5rem",
+          marginTop: "2rem",
+          marginBottom: "2rem",
+          paddingLeft: "1.5rem",
+        }}
       >
-        {({ className, style, tokens, getLineProps, getTokenProps }) => (
-          <pre className={className} style={style}>
-            {tokens.map((line, i) => (
-              <div {...getLineProps({ line, key: i })}>
-                {line.map((token, key) => (
-                  <span {...getTokenProps({ token, key })} />
+        <div style={{ display: "flex", position: "relative" }}>
+          <div
+            style={{
+              background: "#ffffff",
+              marginRight: "1rem",
+              paddingLeft: "0.5rem",
+              paddingRight: "0.5rem",
+              textTransform: "uppercase",
+              borderBottomLeftRadius: "0.5rem",
+              borderBottomRightRadius: "0.5rem",
+              fontFamily: "Montserrat",
+              fontWeight: "bold",
+              textAlign: "center",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >{`${language}`}</div>
+          <div
+            style={{
+              color: "#9d9d9d",
+              fontFamily: "Montserrat",
+              fontStyle: "italic",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            {file && `${file}`}
+          </div>
+        </div>
+        <div
+          style={{
+            overflow: "auto",
+            background: "#011627",
+            borderRadius: "0.5rem",
+          }}
+        >
+          <Highlight
+            {...defaultProps}
+            theme={undefined}
+            // theme={theme}
+            code={code}
+            language={language}
+          >
+            {({ className, style, tokens, getLineProps, getTokenProps }) => (
+              <pre className={className} style={style}>
+                {/* <div>{`Language: ${language}`}</div> */}
+                {/* <div>{file && `File: ${file}`}</div> */}
+                {tokens.map((line, i) => (
+                  <div {...getLineProps({ line, key: i })}>
+                    {line.map((token, key) => (
+                      <span {...getTokenProps({ token, key })} />
+                    ))}
+                  </div>
                 ))}
-              </div>
-            ))}
-          </pre>
-        )}
-      </Highlight>
+              </pre>
+            )}
+          </Highlight>
+        </div>
+      </div>
     )
   },
   wrapper: ({ children }) => <>{children}</>,
