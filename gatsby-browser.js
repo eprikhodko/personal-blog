@@ -7,8 +7,9 @@ import styled from "styled-components"
 require("./src/assets/css/prism-one-light.css")
 
 const CodeBlockContainer = styled.div`
+  background: #fdfaf6;
   background: hsl(220, 13%, 18%);
-  border-radius: 4px;
+  border-radius: 40px;
   margin-top: 2em;
   margin-bottom: 2em;
 `
@@ -16,13 +17,14 @@ const CodeBlockContainer = styled.div`
 const CodeTitle = styled.div`
   /* color: #9d9d9d; */
   color: #866c5b;
-  background: #fdfaf6;
+  /* background: #fdfaf6; */
   font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
     "Courier New", monospace;
 
   padding: 1.25em 1.5em 1em;
 
   border-bottom: 1px solid #faede5;
+  border-radius: 4px 4px 0 0;
   /* border-bottom: 1px solid var(--theme-ui-colors-code-border,#faede5); */
   /* display: flex;
   justifycontent: center;
