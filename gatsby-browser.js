@@ -7,8 +7,8 @@ import styled from "styled-components"
 require("./src/assets/css/prism-one-light.css")
 
 const CodeBlockContainer = styled.div`
-  background: #fdfaf6;
   background: hsl(220, 13%, 18%);
+  background: #fdfaf6;
   border-radius: 40px;
   margin-top: 2em;
   margin-bottom: 2em;

@@ -1,21 +1,22 @@
 import * as React from "react"
-import styled from "styled-components"
 import { graphql } from "gatsby"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import styled from "styled-components"
+
 import Layout from "../../components/Layout"
 
-const Subtitle = styled.h2`
-  margin: 0;
-  color: rgba(0, 0, 0, 0.5);
+const Date = styled.p`
+  font-size: 1.9rem;
+  font-weight: 500;
+  /* color: #000; */
 `
 
 function BlogPost({ data }) {
   const heroImage = getImage(data.mdx.frontmatter.hero_image)
   return (
     <Layout pageTitle={data.mdx.frontmatter.title}>
-      <Subtitle>{data.mdx.frontmatter.subtitle}</Subtitle>
-      <p>{data.mdx.frontmatter.date}</p>
+      <Date>{data.mdx.frontmatter.date}</Date>
       <GatsbyImage
         image={heroImage}
         alt={data.mdx.frontmatter.hero_image_alt}
@@ -31,7 +32,6 @@ export const query = graphql`
       body
       frontmatter {
         title
-        subtitle
         date(formatString: "MMMM DD, YYYY")
         hero_image_alt
         hero_image {
