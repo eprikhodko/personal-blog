@@ -9,7 +9,7 @@ require("./src/assets/css/prism-one-light.css")
 const CodeBlockContainer = styled.div`
   background: hsl(220, 13%, 18%);
   background: #fdfaf6;
-  border-radius: 40px;
+  border-radius: 4px 4px 0 0;
   margin-top: 2em;
   margin-bottom: 2em;
 `
