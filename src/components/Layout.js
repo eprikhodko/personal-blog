@@ -6,6 +6,7 @@ import styled, { createGlobalStyle } from "styled-components"
 // import "@fontsource/ibm-plex-sans"
 import "@fontsource/inter/500.css"
 import "@fontsource/inter/700.css"
+import "@fontsource/inter/800.css"
 import "@fontsource/inter/900.css"
 
 const GlobalStyle = createGlobalStyle`
@@ -30,7 +31,7 @@ body {
   This way we can use 1em as 10px. If we'll specify the font-size of body and set it to 1.6rem, (which is 16px),
   1em will become 16px */
   font-size: 1.8rem;
-  color: rgba(0, 0, 0, 0.7);
+  color: rgba(0, 0, 0, 0.8);
   /* color: rgb(46, 53, 63); */
   font-weight: 500;
   line-height: 1.6;
