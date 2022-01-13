@@ -1,3 +1,139 @@
+// Duotone Dark
+// Author: Simurai, adapted from DuoTone themes for Atom (http://simurai.com/projects/2016/01/01/duotone-themes)
+// Conversion: Bram de Haan (http://atelierbram.github.io/Base2Tone-prism/output/prism/prism-base2tone-evening-dark.css)
+// Generated with Base16 Builder (https://github.com/base16-builder/base16-builder)
+const theme = {
+  plain: {
+    backgroundColor: "#282c34",
+    color: "#abb2bf",
+  },
+  styles: [
+    {
+      types: ["prolog", "doctype", "cdata"],
+      style: {
+        color: "#6c6783",
+      },
+    },
+    {
+      // This was manually added after the auto-generation
+      // so that punctuations are not italicised
+      types: ["punctuation"],
+      style: {
+        color: "hsl(220, 9%, 50%)",
+      },
+    },
+    {
+      types: ["comment"],
+      style: {
+        color: "hsl(220, 9%, 50%)",
+        fontStyle: "italic",
+      },
+    },
+
+    {
+      types: ["namespace"],
+      style: {
+        opacity: 0.7,
+      },
+    },
+    {
+      types: ["operator", "number"],
+      style: {
+        color: "hsl(207, 82%, 66%)",
+      },
+    },
+    {
+      types: ["tag"],
+      style: {
+        color: "#e5bf7b",
+      },
+    },
+    {
+      types: ["property", "function"],
+      style: {
+        color: "hsl(207, 82%, 66%)",
+      },
+    },
+    {
+      types: ["tag-id", "selector", "atrule-id"],
+      style: {
+        color: "#eeebff",
+      },
+    },
+    {
+      types: ["attr-name"],
+      style: {
+        color: "#c4b9fe",
+      },
+    },
+    {
+      types: [
+        "boolean",
+        "string",
+        "entity",
+        "url",
+        // "attr-value",
+        "keyword",
+        "control",
+        "directive",
+        "unit",
+        "statement",
+        "regex",
+        "at-rule",
+        "placeholder",
+        "variable",
+      ],
+      style: {
+        color: "hsl(286, 60%, 67%)",
+      },
+    },
+    {
+      types: ["attr-value"],
+      style: {
+        color: "hsl(95, 38%, 62%)",
+      },
+    },
+    {
+      types: ["string"],
+      style: {
+        color: "hsl(95, 38%, 62%)",
+      },
+    },
+    {
+      types: ["deleted"],
+      style: {
+        textDecorationLine: "line-through",
+      },
+    },
+    {
+      types: ["inserted"],
+      style: {
+        textDecorationLine: "underline",
+      },
+    },
+    {
+      types: ["italic"],
+      style: {
+        fontStyle: "italic",
+      },
+    },
+    {
+      types: ["important", "bold"],
+      style: {
+        fontWeight: "bold",
+      },
+    },
+    {
+      types: ["important"],
+      style: {
+        color: "#c4b9fe",
+      },
+    },
+  ],
+}
+
+export default theme
+
 // const theme = {
 //   plain: {
 //     color: "#d6deeb",
@@ -107,68 +243,3 @@
 // }
 
 // export default theme
-
-const theme = {
-  plain: {
-    color: "#abb2bf",
-    backgroundColor: "#282c34",
-  },
-  styles: [
-    {
-      types: ["punctuation", "constant", "deleted", "tag"],
-      style: {
-        color: "rgb(224, 108, 117)",
-      },
-    },
-    {
-      types: ["variable", "keyword", "selector"],
-      style: {
-        color: "rgb(198, 120, 221)",
-      },
-    },
-    {
-      types: ["builtin", "changed", "namespace", "class-name"],
-      style: {
-        color: "rgb(229, 192, 123)",
-      },
-    },
-    {
-      types: ["operator"],
-      style: {
-        color: "rgb(171, 178, 191)",
-      },
-    },
-    {
-      types: ["inserted", "string"],
-      style: {
-        color: "rgb(152, 195, 121)",
-      },
-    },
-    {
-      types: ["char", "number", "attr-name"],
-      style: {
-        color: "rgb(209, 154, 102)",
-      },
-    },
-    {
-      types: ["function"],
-      style: {
-        color: "rgb(97, 175, 239)",
-      },
-    },
-    {
-      types: ["symbol"],
-      style: {
-        color: "rgb(86, 182, 194)",
-      },
-    },
-    {
-      types: ["comment"],
-      style: {
-        fontStyle: "italic",
-      },
-    },
-  ],
-}
-
-export default theme

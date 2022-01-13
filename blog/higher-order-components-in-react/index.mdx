@@ -5,6 +5,53 @@ hero_image: ""
 hero_image_alt: "A jeep in dunes"
 ---
 
+```jsx file=src/pages/index.js
+// Step 1: Import React
+import * as React from "react"
+
+// Step 2: Define your component
+const IndexPage = () => {
+  return (
+    <>
+      <main>
+        <title>Home Page</title>
+        <h1>Welcome to my Gatsby site!</h1>
+        <p>I'm making this by following the Gatsby Tutorial.</p>
+      </main>
+
+      <GridContainer>
+        <Container>
+          <GlobalStyle />
+          <title>
+            {pageTitle} | {data.site.siteMetadata.title}
+          </title>
+          <Header>
+            <StyledLink to="/">{data.site.siteMetadata.title}</StyledLink>
+          </Header>
+          <nav>
+            <NavLinks>
+              <NavLinkItem>
+                <NavLink to="/">Home</NavLink>
+              </NavLinkItem>
+              <NavLinkItem>
+                <NavLink to="/blog">Blog</NavLink>
+              </NavLinkItem>
+            </NavLinks>
+          </nav>
+          <main>
+            <Heading>{pageTitle}</Heading>
+            {children}
+          </main>
+        </Container>
+      </GridContainer>
+    </>
+  )
+}
+
+// Step 3: Export your component
+export default IndexPage
+```
+
 ```js file=src/pages/Menu.js
 import { useState } from "react"
 

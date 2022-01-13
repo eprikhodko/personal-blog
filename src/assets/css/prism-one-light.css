@@ -32,8 +32,8 @@ code[class*="language-"],
 pre[class*="language-"] {
   /* background: #fdfaf6; */
   color: hsl(230, 8%, 24%);
-  font-family: "Fira Code", "Fira Mono", Menlo, Consolas, "DejaVu Sans Mono",
-    monospace;
+  font-family: "Liberation Mono", "Fira Code", "Fira Mono", Menlo, Consolas,
+    "DejaVu Sans Mono", monospace;
   direction: ltr;
   text-align: left;
   white-space: pre;
@@ -124,8 +124,11 @@ pre[class*="language-"] {
   color: hsl(119, 34%, 47%);
 }
 
+.token.operator {
+  color: hsl(0, 0, 0);
+}
+
 .token.variable,
-.token.operator,
 .token.function {
   color: hsl(221, 87%, 60%);
 }
