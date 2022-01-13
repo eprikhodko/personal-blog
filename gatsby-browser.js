@@ -8,18 +8,18 @@ import theme from "./src/assets/css/myCustomTheme"
 // require("./src/assets/css/prism-one-dark.css")
 
 const CodeBlockContainer = styled.div`
-  background: hsl(220, 13%, 18%);
+  background: rgb(253, 250, 246);
   border-radius: 4px;
   margin-top: 2em;
   margin-bottom: 2em;
 `
 
 const CodeTitle = styled.div`
-  color: rgb(171, 178, 191);
+  color: rgb(116, 124, 139);
   font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
     "Courier New", monospace;
   padding: 1.25em 1.5em 1em;
-  border-bottom: 1px solid rgb(171, 178, 191);
+  border-bottom: 1px solid rgb(250, 237, 229);
   border-radius: 4px 4px 0 0;
 `
 
@@ -51,7 +51,6 @@ const Pre = styled.pre`
 
   &:before {
     content: "${({ language }) => language}";
-    background: #d9d7e0;
     background: #f7df1e;
     border-radius: 0px 0px 4px 4px;
     color: #232129;
@@ -83,7 +82,7 @@ const components = {
         <div
           style={{
             overflow: "auto",
-            // background: "#011627",
+            background: "transparent",
             borderRadius: "0 0 4px 4px",
           }}
         >

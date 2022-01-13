@@ -4,8 +4,8 @@
 // Generated with Base16 Builder (https://github.com/base16-builder/base16-builder)
 const theme = {
   plain: {
-    backgroundColor: "#282c34",
-    color: "#abb2bf",
+    backgroundColor: "#fdfaf6",
+    color: "rgb(54, 49, 61)",
   },
   styles: [
     {
@@ -19,7 +19,7 @@ const theme = {
       // so that punctuations are not italicised
       types: ["punctuation"],
       style: {
-        color: "hsl(220, 9%, 50%)",
+        color: "rgb(104, 116, 139)",
       },
     },
     {
@@ -39,19 +39,19 @@ const theme = {
     {
       types: ["operator", "number"],
       style: {
-        color: "hsl(207, 82%, 66%)",
+        color: "rgb(12, 114, 198)",
       },
     },
     {
       types: ["tag"],
       style: {
-        color: "#e5bf7b",
+        color: "#c92c2c",
       },
     },
     {
       types: ["property", "function"],
       style: {
-        color: "hsl(207, 82%, 66%)",
+        color: "rgb(12, 114, 198)",
       },
     },
     {
@@ -63,13 +63,14 @@ const theme = {
     {
       types: ["attr-name"],
       style: {
-        color: "#c4b9fe",
+        color: "rgb(54, 49, 61)",
+        fontStyle: "italic",
       },
     },
     {
       types: [
         "boolean",
-        "string",
+        // "string",
         "entity",
         "url",
         // "attr-value",
@@ -84,19 +85,13 @@ const theme = {
         "variable",
       ],
       style: {
-        color: "hsl(286, 60%, 67%)",
+        color: "hsl(286, 69%, 51%)",
       },
     },
     {
-      types: ["attr-value"],
+      types: ["string", "attr-value"],
       style: {
-        color: "hsl(95, 38%, 62%)",
-      },
-    },
-    {
-      types: ["string"],
-      style: {
-        color: "hsl(95, 38%, 62%)",
+        color: "#2f9c0a",
       },
     },
     {
