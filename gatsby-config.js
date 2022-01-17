@@ -18,6 +18,8 @@ module.exports = {
               maxWidth: 1200,
             },
           },
+          // https://annarossetti.com/articles/how-to-add-mdx-to-gatsby/
+          `gatsby-remark-copy-linked-files`,
         ],
       },
     },
