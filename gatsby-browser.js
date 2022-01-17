@@ -47,8 +47,9 @@ const CodeLabel = styled.div`
 
 const Pre = styled.pre`
   margin: 0;
-  padding: 2em 0;
+  /* padding: 2em 0; */
   position: relative;
+  /* white-space: pre-wrap; */
 
   &:before {
     content: "${({ language }) => language}";
@@ -64,7 +65,14 @@ const Pre = styled.pre`
     text-align: right;
     text-transform: uppercase;
     top: 0px;
+    left: 1.5em;
   }
+
+  /* make line highlight background stretch after horizontal scroll */
+  /* https://www.gatsbyjs.com/plugins/gatsby-remark-prismjs/ */
+  overflow: initial;
+  float: left; /* 1 */
+  min-width: 100%; /* 2 */
 `
 
 const components = {
