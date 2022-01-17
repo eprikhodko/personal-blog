@@ -2,6 +2,7 @@ import React from "react"
 import { MDXProvider } from "@mdx-js/react"
 import Highlight, { defaultProps } from "prism-react-renderer"
 import styled from "styled-components"
+import rangeParser from "parse-numeric-range"
 // import theme from "prism-react-renderer/themes/duotoneDark"
 import theme from "./src/assets/css/myCustomTheme"
 // require("./src/assets/css/prism-one-light.css")
@@ -46,7 +47,7 @@ const CodeLabel = styled.div`
 
 const Pre = styled.pre`
   margin: 0;
-  padding: 2em 1.5em;
+  padding: 2em 0;
   position: relative;
 
   &:before {
@@ -69,10 +70,26 @@ const Pre = styled.pre`
 const components = {
   pre: (props) => {
     console.log(props)
+    const raw = props.children.props.highlights || ""
+    console.log(rangeParser(raw))
     const className = props.children.props.className || ""
     const code = props.children.props.children.trim()
     const language = className.replace(/language-/, "")
     const file = props.children.props.file
+
+    const calculateLinesToHighlight = (raw) => {
+      const lineNumbers = rangeParser(raw)
+      if (lineNumbers) {
+        return (index) => lineNumbers.includes(index + 1)
+      } else {
+        return () => false
+      }
+    }
+
+    const highlights = calculateLinesToHighlight(
+      props.children.props.highlights || ""
+    )
+
     return (
       <CodeBlockContainer>
         <CodeTitle>{file && `${file}`}</CodeTitle>
@@ -95,15 +112,34 @@ const components = {
           >
             {({ className, style, tokens, getLineProps, getTokenProps }) => (
               <Pre className={className} style={style} language={language}>
-                {/* <div>{`Language: ${language}`}</div> */}
-                {/* <div>{file && `File: ${file}`}</div> */}
-                {tokens.map((line, i) => (
-                  <div {...getLineProps({ line, key: i })}>
-                    {line.map((token, key) => (
-                      <span {...getTokenProps({ token, key })} />
-                    ))}
-                  </div>
-                ))}
+                <div
+                  style={{
+                    padding: "2em 1.5em",
+                  }}
+                >
+                  {/* <div>{`Language: ${language}`}</div> */}
+                  {/* <div>{file && `File: ${file}`}</div> */}
+                  {tokens.map((line, i) => (
+                    <div
+                      {...getLineProps({ line, key: i })}
+                      style={{
+                        background: highlights(i) ? "#fbf0ea" : "transparent",
+                        display: "block",
+                        marginLeft: "-1.5em",
+                        marginRight: "-1.5em",
+                        paddingLeft: "1.5em",
+                        paddingRight: "1.5em",
+                        borderLeft: highlights(i)
+                          ? "4px solid #f1beb6"
+                          : "none",
+                      }}
+                    >
+                      {line.map((token, key) => (
+                        <span {...getTokenProps({ token, key })} />
+                      ))}
+                    </div>
+                  ))}
+                </div>
               </Pre>
             )}
           </Highlight>
