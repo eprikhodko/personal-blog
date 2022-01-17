@@ -25,7 +25,7 @@ const Date = styled.p`
 function BlogPage({ data }) {
   //   console.log(data)
   return (
-    <Layout pageTitle="Recently Published:">
+    <Layout pageTitle="">
       {data.allMdx.nodes.map((node) => (
         <article key={node.id}>
           <PostTitle>
