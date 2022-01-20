@@ -1,12 +1,28 @@
 module.exports = {
   siteMetadata: {
     siteUrl: "https://www.evgenyprikhodko.com",
-    title: "Personal blog of Evgeny Prikhodko",
+    title: "Evgeny Prikhodko",
   },
   plugins: [
     "gatsby-plugin-styled-components",
     "gatsby-plugin-image",
     "gatsby-plugin-sharp",
+    `gatsby-remark-images`,
+    {
+      resolve: `gatsby-plugin-mdx`,
+      options: {
+        gatsbyRemarkPlugins: [
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 1200,
+            },
+          },
+          // https://annarossetti.com/articles/how-to-add-mdx-to-gatsby/
+          `gatsby-remark-copy-linked-files`,
+        ],
+      },
+    },
     {
       resolve: "gatsby-source-filesystem",
       options: {
@@ -14,7 +30,6 @@ module.exports = {
         path: `${__dirname}/blog`,
       },
     },
-    "gatsby-plugin-mdx",
     "gatsby-transformer-sharp",
   ],
 }
