@@ -1,6 +1,6 @@
 ---
 title: "Компоненты высшего порядка в React"
-date: "2022-01-07"
+date: "2022-01-20"
 hero_image: ""
 hero_image_alt: "empty"
 ---
@@ -229,4 +229,83 @@ const higherOrderComponent = (WrappedComponent) => {
 }
 
 export default higherOrderComponent
+```
+
+нам нужно немного изменить наш компонент высшего порядка, чтобы у нас была возможность передавать с пропсами требуемое значение стейта, true, или false:
+
+```jsx file=src/HOCs/higherOrderComponent.js highlights=3,5,15
+import { useState } from "react"
+
+const higherOrderComponent = (WrappedComponent, optionsObj) => {
+  const Component = (props) => {
+    const [on, setOn] = useState(optionsObj.defaultOnValue)
+
+    const toggle = () => {
+      setOn((prevState) => !prevState)
+    }
+    // if any props are passed alone, we should include them with {...props}
+    return (
+      <WrappedComponent
+        on={on}
+        toggle={toggle}
+        defaultOnValue={optionsObj.defaultOnValue}
+        {...props}
+      />
+    )
+  }
+
+  return Component
+}
+
+export default higherOrderComponent
+```
+
+Теперь мы можем передать с пропсами false, для компонента **Favorite**:
+
+```jsx file=src/Favorite.js highlights=16,17,18
+import higherOrderComponent from "./HOCs/higherOrderComponent"
+
+function Favorite({ toggle, on }) {
+  return (
+    <div>
+      <h3>Add to favorite</h3>
+      <h1>
+        <span onClick={toggle} style={{ cursor: "pointer" }}>
+          {on ? "❤️" : "♡"}
+        </span>
+      </h1>
+    </div>
+  )
+}
+
+const EnhancedFavoriteComponent = higherOrderComponent(Favorite, {
+  defaultOnValue: false,
+})
+export default EnhancedFavoriteComponent
+```
+
+Таким образом сердце изначально будет прозрачным, а не красным. <br />
+Для компонента **Menu** передадим true, чтобы меню по-умолчанию было развернуто:
+
+```jsx file=src/Menu.js highlights=20
+import higherOrderComponent from "./HOCs/higherOrderComponent"
+
+function Menu({ toggle, on }) {
+  return (
+    <div>
+      <nav style={{ display: on ? "block" : "none" }}>
+        <h5>Signed in as newUser</h5>
+        <a> Your Profile </a>
+        <a> - Your Collection </a>
+        <a> - Your Wishlist </a>
+      </nav>
+      <br />
+      <button type="button" onClick={toggle} style={{ cursor: "pointer" }}>
+        {on ? "Hide" : "Show"} Menu
+      </button>
+    </div>
+  )
+}
+
+export default higherOrderComponent(Menu, { defaultOnValue: true })
 ```
