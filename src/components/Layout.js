@@ -37,6 +37,13 @@ body {
   line-height: 1.6;
   /* background-color: #dbdbdb; */
 }
+
+.gatsby-resp-image-figcaption {
+  color: rgba(0, 0, 0, 0.7);
+  text-align: center;
+  /* font-style: italic; */
+}
+
 `
 
 const GridContainer = styled.div`

@@ -16,6 +16,7 @@ module.exports = {
             resolve: `gatsby-remark-images`,
             options: {
               maxWidth: 1200,
+              showCaptions: ["title", "alt"],
             },
           },
           // https://annarossetti.com/articles/how-to-add-mdx-to-gatsby/
