@@ -24,21 +24,19 @@ const Date = styled.p`
 
 function BlogPage({ data }) {
   //   console.log(data)
-  return (
-    <Layout pageTitle="">
-      {data.allMdx.nodes.map((node) => (
-        <article key={node.id}>
-          <PostTitle>
-            <StyledLink to={`/blog/${node.slug}`}>
-              {node.frontmatter.title}
-            </StyledLink>
-          </PostTitle>
-          <Date>{node.frontmatter.date}</Date>
-          {/* <p>updated: {node.parent.modifiedTime}</p> */}
-        </article>
-      ))}
-    </Layout>
-  )
+
+  const blogPosts = data.allMdx.nodes.map((node) => (
+    <article key={node.id}>
+      <PostTitle>
+        <StyledLink to={`/blog/${node.slug}`}>
+          {node.frontmatter.title}
+        </StyledLink>
+      </PostTitle>
+      <Date>{node.frontmatter.date}</Date>
+      {/* <p>updated: {node.parent.modifiedTime}</p> */}
+    </article>
+  ))
+  return <Layout pageTitle="">{blogPosts}</Layout>
 }
 
 export const query = graphql`
