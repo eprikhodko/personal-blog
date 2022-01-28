@@ -75,6 +75,18 @@ const Pre = styled.pre`
   min-width: 100%; /* 2 */
 `
 
+const Line = styled.div`
+  display: table-row;
+`
+
+const LineNo = styled.span`
+  display: table-cell;
+  text-align: right;
+  padding-right: 1em;
+  user-select: none;
+  opacity: 0.5;
+`
+
 const components = {
   pre: (props) => {
     console.log(props)
@@ -128,24 +140,27 @@ const components = {
                   {/* <div>{`Language: ${language}`}</div> */}
                   {/* <div>{file && `File: ${file}`}</div> */}
                   {tokens.map((line, i) => (
-                    <div
-                      {...getLineProps({ line, key: i })}
-                      style={{
-                        background: highlights(i) ? "#fbf0ea" : "transparent",
-                        display: "block",
-                        marginLeft: "-1.5em",
-                        marginRight: "-1.5em",
-                        paddingLeft: "1.5em",
-                        paddingRight: "1.5em",
-                        borderLeft: highlights(i)
-                          ? "4px solid #f1beb6"
-                          : "none",
-                      }}
-                    >
-                      {line.map((token, key) => (
-                        <span {...getTokenProps({ token, key })} />
-                      ))}
-                    </div>
+                    <Line key={i} {...getLineProps({ line, key: i })}>
+                      <LineNo>{i + 1}</LineNo>
+                      <div
+                        {...getLineProps({ line, key: i })}
+                        style={{
+                          background: highlights(i) ? "#fbf0ea" : "transparent",
+                          display: "block",
+                          marginLeft: "-3em",
+                          marginRight: "-1.5em",
+                          paddingLeft: "3em",
+                          paddingRight: "1.5em",
+                          borderLeft: highlights(i)
+                            ? "4px solid #f1beb6"
+                            : "none",
+                        }}
+                      >
+                        {line.map((token, key) => (
+                          <span {...getTokenProps({ token, key })} />
+                        ))}
+                      </div>
+                    </Line>
                   ))}
                 </div>
               </Pre>

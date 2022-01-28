@@ -37,6 +37,20 @@ body {
   line-height: 1.6;
   /* background-color: #dbdbdb; */
 }
+
+.gatsby-resp-image-figcaption {
+  color: rgba(0, 0, 0, 0.7);
+  text-align: center;
+  /* font-style: italic; */
+}
+
+blockquote {
+  border-left: 3px solid rgba(0, 0, 0, 0.2);
+  padding-left: 0.5em;
+  /* border-radius: 20px; */
+  /* background: green; */
+}
+
 `
 
 const GridContainer = styled.div`
