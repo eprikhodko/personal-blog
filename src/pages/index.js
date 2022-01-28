@@ -23,6 +23,12 @@ function IndexPage() {
           where I write and share the things I learn with every new project
           (currently in Russian only).
         </p>
+        <p>
+          The source code for this website hosted at my{" "}
+          <StyledLink to="https://github.com/eprikhodko">
+            <strong>github.</strong>
+          </StyledLink>
+        </p>
         {/* <StaticImage
           alt="A man that feed dog from spoon"
           src="../images/man-and-dog.jpg"
